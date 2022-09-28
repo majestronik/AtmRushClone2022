@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Transform finishLine;
     public Transform topOfMoney;
     public float speedZ;
+    public float defaultSpeed;
     public float roadWidth, roadOffset;
     public static PlayerController instance;
     public bool isMovement;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         Singleton();
         isMovement = true;
+        defaultSpeed = speedZ;
     }
 
     // Update is called once per frame
@@ -68,8 +70,12 @@ public class PlayerController : MonoBehaviour
                     roadWidth / 2 - roadOffset);
                 _lastMousePosition = Input.mousePosition;
             }
+            speedZ = defaultSpeed;
         }
-
+        else
+        {
+            speedZ = 0f;
+        }
 
         transform.position = _parentTargetPosition;
         playerMesh.localPosition = _meshTargetLocalPosition;

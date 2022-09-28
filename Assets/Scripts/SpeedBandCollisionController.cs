@@ -49,7 +49,7 @@ public class SpeedBandCollisionController : MonoBehaviour
     private void CollectedItemAnimation(CollectableController item)
     {
         item.transform.SetParent(_speedBandParent);
-        item.transform.DOLocalMoveX(-2f, .5f);
         item.transform.DOLocalMoveZ(Random.Range(-0.2f, 0.2f), .5f);
+        item.transform.DOLocalMoveX(-2f, .5f);
     }
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public bool IsRunning = false;
     public bool IsGameOver = false;
     public UIManager uiManager;
+    public AnimatorStateController animatorStateController;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        animatorStateController.IsRunning(true);
         IsRunning = true;
         uiManager.tapToPlayTxt.gameObject.SetActive(false);
     }

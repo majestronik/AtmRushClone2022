@@ -26,7 +26,11 @@ public class Stacker : MonoBehaviour
     {
         for (int i = 0; i < _stackedObjects.Count; i++)
         {
-            if (_stackedObjects[i] == null) _stackedObjects.Remove(_stackedObjects[i]);
+            if (_stackedObjects[i] == null)
+            {
+                _stackedObjects.Remove(_stackedObjects[i]);
+                return;
+            }
             _stackedObjects[i].transform.position = Vector3.Lerp(_stackedObjects[i].transform.position,
                 GetFollowTarget(i), Time.deltaTime * stackFollowSpeed);
         }
@@ -46,7 +50,7 @@ public class Stacker : MonoBehaviour
         c.transform.SetParent(stackParent);
         Vector3 pos = c.transform.position;
         pos.y = .5f;
-        c.transform.position = pos; 
+        c.transform.position = pos;
         WaveScale();
     }
 

@@ -12,6 +12,7 @@ public class FinishPartController : MonoBehaviour
     public Stacker stacker;
     public Transform topOfMoney;
     public CameraManager cameraManager;
+    public AnimatorStateController animatorStateController;
     private bool _moneyAnimation;
 
     private void Awake()
@@ -21,6 +22,7 @@ public class FinishPartController : MonoBehaviour
 
     public void EndgameAnimation()
     {
+        animatorStateController.IsRunning(false);
         PlayerController.instance.isMovement = false;
         PlayerController.instance.playerMesh.DOMoveX(0, .2f)
             .SetDelay(3f)
